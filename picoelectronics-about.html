@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PicoElectronics | Leading IC Components Distributor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a2f4d;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 25px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus-within {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            padding: 5px;
+            width: 300px;
+            font-size: 0.95rem;
+        }
+
+        .search-box svg {
+            width: 18px;
+            height: 18px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .search-box svg:hover {
+            color: #1a2f4d;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a2f4d;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a2f4d 0%, #15283f 100%);
+            color: white;
+            padding: 140px 2rem 80px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 2rem;
+        }
+
+        .about-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-intro h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-intro p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .mission-card,
+        .vision-card {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 12px;
+            border-left: 5px solid #1a2f4d;
+        }
+
+        .mission-card h3,
+        .vision-card h3 {
+            font-size: 2rem;
+            color: #1a2f4d;
+            margin-bottom: 1rem;
+        }
+
+        .mission-card p,
+        .vision-card p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Core Values */
+        .values-section {
+            margin-bottom: 5rem;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a2f4d, #2c4563);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Quality & Certifications */
+        .quality-section {
+            background: #f8f9fa;
+            padding: 60px 2rem;
+            margin-top: 4rem;
+        }
+
+        .quality-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .quality-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .quality-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .quality-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .quality-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .quality-item h4 {
+            font-size: 1.3rem;
+            color: #1a2f4d;
+            margin-bottom: 1rem;
+        }
+
+        .quality-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .certifications {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .certifications h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            padding: 1.5rem 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #1a2f4d;
+            font-size: 1.1rem;
+            border: 2px solid #e0e0e0;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: #1a2f4d;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: linear-gradient(135deg, #1a2f4d 0%, #15283f 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .team-cta {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #1a2f4d;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .team-cta:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 2rem 20px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="picoelectronics-services.html" class="logo">
+                <img src="image/logo.png" alt="PicoElectronics Logo">
+                <span class="logo-text">PicoElectronics</span>
+            </a>
+            <div class="nav-center">
+                <div class="search-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input type="text" placeholder="Search part numbers, manufacturers...">
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="picoelectronics-services.html">Services</a></li>
+                <li><a href="picoelectronics-products.html">Products</a></li>
+                <li><a href="picoelectronics-about.html" class="active">About</a></li>
+                <li><a href="picoelectronics-contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About PicoElectronics</h1>
+        <p>Global IC Components Distributor | Trusted Quality. Proven Expertise.</p>
+    </section>
+
+    <!-- About Intro -->
+    <section class="about-section">
+        <div class="about-intro">
+            <h2>Who We Are</h2>
+            <p>PicoElectronics is a leading global distributor specializing in integrated circuits (ICs), semiconductors, and mission-critical electronic components. With 25+ years of industry expertise, we serve OEMs, contract manufacturers, and design engineers worldwide with unparalleled speed, precision, and technical support.</p>
+            <p>As a trusted global IC components distributor, our mission is to simplify supply chain complexity through reliable inventory access, competitive market pricing, and exceptional service. We ensure critical components reach the right place at the right time, every time.</p>
+        </div>
+
+        <!-- Mission & Vision -->
+        <div class="mission-vision">
+            <div class="mission-card">
+                <h3>Our Mission</h3>
+                <p>To deliver exceptional value as a global IC components distributor through reliable access to high-quality semiconductors and ICs, expert technical support, and innovative supply chain solutions. We build long-term partnerships based on trust, transparency, and mutual success.</p>
+            </div>
+            <div class="vision-card">
+                <h3>Our Vision</h3>
+                <p>To be the most trusted global IC components distributor, recognized for quality assurance, service excellence, and our ability to solve the industry's most complex sourcing challenges with precision and efficiency.</p>
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="values-section">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Quality Assurance</h3>
+                    <p>100% authentic components sourced exclusively from authorized distributors and manufacturers. Full traceability, documentation, and compliance guaranteed.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Speed & Precision</h3>
+                    <p>Streamlined processes and global logistics enable 24-hour quotes, same-day shipping, and rapid response to critical shortages and urgent requirements.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Customer Partnership</h3>
+                    <p>Your success is our success. We work collaboratively to understand unique needs and deliver customized solutions that drive competitive advantage.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔒</div>
+                    <h3>Integrity & Transparency</h3>
+                    <p>Honest communication and transparent transactions in every interaction. We build lasting relationships through ethical practices and consistent performance.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Global Scale</h3>
+                    <p>Offices and strategic partnerships worldwide provide local expertise backed by global resources—serving customers anywhere, anytime with precision.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3>Market Intelligence</h3>
+                    <p>Continuous investment in technology, data analytics, and process innovation delivers cutting-edge solutions and real-time market insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Years in Business</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100K+</div>
+                <div class="stat-label">Part Numbers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Manufacturer Partners</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Satisfied Customers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Countries Served</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.8%</div>
+                <div class="stat-label">Quality Rate</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality & Certifications -->
+    <section class="quality-section">
+        <div class="quality-container">
+            <h2>Our Commitment to Quality</h2>
+            <p class="quality-intro">Quality is at the heart of everything we do. Our rigorous quality control processes ensure that every component meets the highest industry standards.</p>
+            
+            <div class="quality-features">
+                <div class="quality-item">
+                    <h4>Authorized Distribution</h4>
+                    <p>We maintain authorized distributor relationships with leading manufacturers, ensuring genuine components with full warranty support.</p>
+                </div>
+                <div class="quality-item">
+                    <h4>Quality Testing</h4>
+                    <p>Every component undergoes thorough inspection and testing, including visual inspection, electrical testing, and authenticity verification.</p>
+                </div>
+                <div class="quality-item">
+                    <h4>Traceability</h4>
+                    <p>Complete chain of custody documentation from manufacturer to customer, with full lot traceability and compliance records.</p>
+                </div>
+                <div class="quality-item">
+                    <h4>Counterfeit Prevention</h4>
+                    <p>Advanced inspection equipment and trained specialists protect against counterfeit components entering the supply chain.</p>
+                </div>
+            </div>
+
+            <div class="certifications">
+                <h3>Certifications & Memberships</h3>
+                <div class="cert-badges">
+                    <div class="cert-badge">ISO 9001:2015</div>
+                    <div class="cert-badge">AS9120B</div>
+                    <div class="cert-badge">ISO 14001</div>
+                    <div class="cert-badge">ECIA Member</div>
+                    <div class="cert-badge">ERAI Member</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <h2>Join Our Team</h2>
+        <p>We're always looking for talented individuals who share our passion for excellence and innovation. If you're ready to make an impact in the electronics industry, we'd love to hear from you.</p>
+        <a href="picoelectronics-contact.html" class="team-cta">Get in Touch</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="picoelectronics-english-updated.html">All Products</a></li>
+                    <li><a href="picoelectronics-english-updated.html">Integrated Circuits</a></li>
+                    <li><a href="picoelectronics-english-updated.html">Power Management</a></li>
+                    <li><a href="picoelectronics-english-updated.html">Microcontrollers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="picoelectronics-services.html">Component Sourcing</a></li>
+                    <li><a href="picoelectronics-services.html">Cost Optimization</a></li>
+                    <li><a href="picoelectronics-services.html">Inventory Management</a></li>
+                    <li><a href="picoelectronics-services.html">Excess Mitigation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="picoelectronics-about.html">About Us</a></li>
+                    <li><a href="picoelectronics-about.html">Quality & Certifications</a></li>
+                    <li><a href="picoelectronics-contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="picoelectronics-contact.html">Request Quote</a></li>
+                    <li><a href="picoelectronics-contact.html">Technical Support</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PicoElectronics. All rights reserved. | Professional IC Components Distributor</p>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.search-box input');
+            const searchIcon = document.querySelector('.search-box svg');
+            
+            if (searchInput && searchIcon) {
+                // Handle Enter key
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        performSearch();
+                    }
+                });
+                
+                // Handle click on search icon
+                searchIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    performSearch();
+                });
+                
+                searchIcon.style.cursor = 'pointer';
+            }
+            
+            function performSearch() {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    // Redirect to products page with search parameter
+                    window.location.href = `picoelectronics-products.html?search=${encodeURIComponent(searchTerm)}`;
+                }
+            }
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Animate value cards
+        document.querySelectorAll('.value-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Animate team members
+        document.querySelectorAll('.team-member').forEach((member, index) => {
+            member.style.opacity = '0';
+            member.style.transform = 'translateY(30px)';
+            member.style.transition = `opacity 0.6s ease ${index * 0.15}s, transform 0.6s ease ${index * 0.15}s`;
+            observer.observe(member);
+        });
+
+        // Animate certification items
+        document.querySelectorAll('.cert-item').forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.8)';
+            item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            observer.observe(item);
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero && scrolled < hero.offsetHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

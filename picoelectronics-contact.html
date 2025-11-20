@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - PicoElectronics | Get in Touch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a2f4d;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 25px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus-within {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            padding: 5px;
+            width: 300px;
+            font-size: 0.95rem;
+        }
+
+        .search-box svg {
+            width: 18px;
+            height: 18px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .search-box svg:hover {
+            color: #1a2f4d;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a2f4d;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a2f4d 0%, #15283f 100%);
+            color: white;
+            padding: 140px 2rem 80px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Contact Methods */
+        .contact-methods {
+            max-width: 1400px;
+            margin: -40px auto 60px;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .method-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .method-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #1a2f4d, #2c4563);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+        }
+
+        .method-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .method-card p {
+            color: #666;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+
+        .method-card a {
+            color: #1a2f4d;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .method-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Form Section */
+        .form-section {
+            max-width: 1400px;
+            margin: 0 auto 60px;
+            padding: 0 2rem;
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .form-info {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 12px;
+        }
+
+        .form-info h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .form-info p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 0.8rem 0;
+            color: #555;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-list li::before {
+            content: '✓';
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .contact-form {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: #dc3545;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1a2f4d;
+            box-shadow: 0 0 0 4px rgba(0,102,204,0.15);
+            transform: translateY(-2px);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #1a2f4d, #2c4563);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .submit-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .form-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Locations Section */
+        .locations-section {
+            background: #f8f9fa;
+            padding: 60px 2rem;
+        }
+
+        .locations-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .locations-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .locations-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .location-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .location-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .location-region {
+            display: inline-block;
+            background: #1a2f4d;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .location-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .location-details {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .location-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .location-type {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #f0f0f0;
+            color: #1a2f4d;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 2rem;
+        }
+
+        .quick-links h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .link-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .link-card:hover {
+            border-color: #1a2f4d;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .link-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .link-card h3 {
+            font-size: 1.3rem;
+            color: #1a2f4d;
+            margin-bottom: 0.5rem;
+        }
+
+        .link-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 2rem 20px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #28a745;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .form-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="picoelectronics-services.html" class="logo">
+                <img src="image/logo.png" alt="PicoElectronics Logo">
+                <span class="logo-text">PicoElectronics</span>
+            </a>
+            <div class="nav-center">
+                <div class="search-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input type="text" placeholder="Search part numbers, manufacturers...">
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="picoelectronics-services.html">Services</a></li>
+                <li><a href="picoelectronics-products.html">Products</a></li>
+                <li><a href="picoelectronics-about.html">About</a></li>
+                <li><a href="picoelectronics-contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Contact PicoElectronics</h1>
+        <p>Global IC Components Distributor | Expert support for your sourcing needs</p>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="contact-methods">
+        <div class="methods-grid">
+            <div class="method-card">
+                <div class="method-icon">📞</div>
+                <h3>Call Us</h3>
+                <p>Speak with our sales team now</p>
+                <a href="tel:+16175024100">+1 617 502 4100</a>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">✉️</div>
+                <h3>Email Us</h3>
+                <p>Send inquiries anytime, anywhere</p>
+                <a href="mailto:sales@picoelectronics.com">sales@picoelectronics.com</a>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">💬</div>
+                <h3>Live Chat</h3>
+                <p>Real-time support available</p>
+                <a href="#">Start Chat →</a>
+            </div>
+            <div class="method-card">
+                <div class="method-icon">📋</div>
+                <h3>Request Quote</h3>
+                <p>Custom pricing within 24 hours</p>
+                <a href="#contact-form">Submit Request →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="form-section" id="contact-form">
+        <div class="form-container">
+            <div class="form-info">
+                <h2>General Inquiry</h2>
+                <p>Complete this form to contact PicoElectronics, your trusted global IC components distributor, about our products and services. For immediate assistance, call us at +1 617 502 4100.</p>
+                <ul class="info-list">
+                    <li>24-hour quote turnaround guaranteed</li>
+                    <li>Expert technical & application support</li>
+                    <li>Global shipping & logistics solutions</li>
+                    <li>Custom programs tailored to your needs</li>
+                    <li>Market-driven competitive pricing</li>
+                </ul>
+            </div>
+
+            <form class="contact-form" onsubmit="submitContactForm(event)">
+                <div class="success-message" id="successMessage">
+                    Thank you! Your message has been received. We'll get back to you within 24 hours.
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name <span class="required">*</span></label>
+                        <input type="text" required placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name <span class="required">*</span></label>
+                        <input type="text" required placeholder="Smith">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address <span class="required">*</span></label>
+                    <input type="email" required placeholder="john.smith@company.com">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+1 (555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" placeholder="Company Name">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Geographic Region <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select Region</option>
+                            <option value="americas">Americas</option>
+                            <option value="emea">EMEA (Europe, Middle East, Africa)</option>
+                            <option value="apac">APAC (Asia Pacific)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Topic of Interest <span class="required">*</span></label>
+                        <select required>
+                            <option value="">Select Topic</option>
+                            <option value="quote">Request a Quote</option>
+                            <option value="product">Product Inquiry</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Message <span class="required">*</span></label>
+                    <textarea required placeholder="Please provide details about your inquiry, including part numbers if applicable..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Inquiry</button>
+
+                <p class="form-note">
+                    By providing your contact information, you're giving PicoElectronics permission to contact you about our products and services. You may unsubscribe from these communications at any time.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations-section">
+        <div class="locations-container">
+            <h2>Our Global Offices</h2>
+            <p class="locations-intro">We maintain offices worldwide to serve you better with local expertise and global resources</p>
+            
+            <div class="locations-grid">
+                <!-- Americas HQ -->
+                <div class="location-card">
+                    <span class="location-region">AMERICAS</span>
+                    <h3>Portsmouth, NH</h3>
+                    <div class="location-details">
+                        <p>1 Harbour Place, Suite 240</p>
+                        <p>Portsmouth, NH 03801</p>
+                        <p>United States</p>
+                        <p>📞 +1 617 502 4100</p>
+                    </div>
+                    <div class="location-type">Global Headquarters</div>
+                </div>
+
+                <!-- Americas - Boston -->
+                <div class="location-card">
+                    <span class="location-region">AMERICAS</span>
+                    <h3>Boston, MA</h3>
+                    <div class="location-details">
+                        <p>100 High Street</p>
+                        <p>Boston, MA 02110</p>
+                        <p>United States</p>
+                        <p>📞 +1 617 555 0100</p>
+                    </div>
+                    <div class="location-type">Sales & Service Hub</div>
+                </div>
+
+                <!-- Americas - Silicon Valley -->
+                <div class="location-card">
+                    <span class="location-region">AMERICAS</span>
+                    <h3>Santa Clara, CA</h3>
+                    <div class="location-details">
+                        <p>2901 Tasman Drive, Suite 205</p>
+                        <p>Santa Clara, CA 95054</p>
+                        <p>United States</p>
+                        <p>📞 +1 408 555 0200</p>
+                    </div>
+                    <div class="location-type">West Coast Operations</div>
+                </div>
+
+                <!-- EMEA HQ -->
+                <div class="location-card">
+                    <span class="location-region">EMEA</span>
+                    <h3>Amsterdam</h3>
+                    <div class="location-details">
+                        <p>Thomas R. Malthusstraat 1</p>
+                        <p>1066 JR Amsterdam</p>
+                        <p>Netherlands</p>
+                        <p>📞 +31 20 555 0100</p>
+                    </div>
+                    <div class="location-type">EMEA Headquarters</div>
+                </div>
+
+                <!-- EMEA - UK -->
+                <div class="location-card">
+                    <span class="location-region">EMEA</span>
+                    <h3>London</h3>
+                    <div class="location-details">
+                        <p>25 Canada Square</p>
+                        <p>London E14 5LQ</p>
+                        <p>United Kingdom</p>
+                        <p>📞 +44 20 7555 0100</p>
+                    </div>
+                    <div class="location-type">UK Operations</div>
+                </div>
+
+                <!-- APAC HQ -->
+                <div class="location-card">
+                    <span class="location-region">APAC</span>
+                    <h3>Singapore</h3>
+                    <div class="location-details">
+                        <p>11 N Buona Vista Dr, #09-08</p>
+                        <p>Tower 2 The Metropolis</p>
+                        <p>Singapore 138589</p>
+                        <p>📞 +65 6555 0100</p>
+                    </div>
+                    <div class="location-type">APAC Headquarters</div>
+                </div>
+
+                <!-- APAC - Hong Kong -->
+                <div class="location-card">
+                    <span class="location-region">APAC</span>
+                    <h3>Hong Kong</h3>
+                    <div class="location-details">
+                        <p>18 Harbour Road, Room 3205</p>
+                        <p>Wanchai, Hong Kong</p>
+                        <p>📞 +852 2555 0100</p>
+                    </div>
+                    <div class="location-type">Distribution Center</div>
+                </div>
+
+                <!-- APAC - Shenzhen -->
+                <div class="location-card">
+                    <span class="location-region">APAC</span>
+                    <h3>Shenzhen</h3>
+                    <div class="location-details">
+                        <p>Shenzhen Software Park</p>
+                        <p>Nanshan District</p>
+                        <p>Shenzhen, China</p>
+                        <p>📞 +86 755 8888 0100</p>
+                    </div>
+                    <div class="location-type">Sourcing Center</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <h2>Quick Access</h2>
+        <div class="links-grid">
+            <a href="picoelectronics-english-updated.html" class="link-card">
+                <div class="link-icon">🔍</div>
+                <h3>Search Products</h3>
+                <p>Browse our 100,000+ part numbers</p>
+            </a>
+            <a href="picoelectronics-services.html" class="link-card">
+                <div class="link-icon">📦</div>
+                <h3>Our Services</h3>
+                <p>Explore our comprehensive solutions</p>
+            </a>
+            <a href="picoelectronics-about.html" class="link-card">
+                <div class="link-icon">🏢</div>
+                <h3>About Us</h3>
+                <p>Learn about our company</p>
+            </a>
+            <a href="#contact-form" class="link-card">
+                <div class="link-icon">💰</div>
+                <h3>Upload BOM</h3>
+                <p>Submit your Bill of Materials</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="picoelectronics-english-updated.html">All Products</a></li>
+                    <li><a href="picoelectronics-english-updated.html">Integrated Circuits</a></li>
+                    <li><a href="picoelectronics-english-updated.html">Power Management</a></li>
+                    <li><a href="picoelectronics-english-updated.html">Microcontrollers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="picoelectronics-services.html">Component Sourcing</a></li>
+                    <li><a href="picoelectronics-services.html">Cost Optimization</a></li>
+                    <li><a href="picoelectronics-services.html">Inventory Management</a></li>
+                    <li><a href="picoelectronics-services.html">Excess Mitigation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="picoelectronics-about.html">About Us</a></li>
+                    <li><a href="picoelectronics-about.html">Quality & Certifications</a></li>
+                    <li><a href="picoelectronics-contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="picoelectronics-contact.html">Request Quote</a></li>
+                    <li><a href="picoelectronics-contact.html">Technical Support</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PicoElectronics. All rights reserved. | Professional IC Components Distributor</p>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.search-box input');
+            const searchIcon = document.querySelector('.search-box svg');
+            
+            if (searchInput && searchIcon) {
+                // Handle Enter key
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        performSearch();
+                    }
+                });
+                
+                // Handle click on search icon
+                searchIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    performSearch();
+                });
+                
+                searchIcon.style.cursor = 'pointer';
+            }
+            
+            function performSearch() {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    // Redirect to products page with search parameter
+                    window.location.href = `picoelectronics-products.html?search=${encodeURIComponent(searchTerm)}`;
+                }
+            }
+        });
+        
+        function submitContactForm(event) {
+            event.preventDefault();
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Reset form after 1 second
+            setTimeout(() => {
+                event.target.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+            }, 1000);
+            
+            return false;
+        }
+    </script>
+</body>
+</html>

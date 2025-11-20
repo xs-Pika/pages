@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - PicoElectronics | Electronic Components Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a2f4d;
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border-radius: 25px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus-within {
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .search-box input {
+            border: none;
+            background: none;
+            outline: none;
+            padding: 5px;
+            width: 300px;
+            font-size: 0.95rem;
+        }
+
+        .search-box svg {
+            width: 18px;
+            height: 18px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .search-box svg:hover {
+            color: #1a2f4d;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #1a2f4d, #2c4563);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1a2f4d;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('image/background.png') center/120% no-repeat;
+            background-position: center center;
+            color: white;
+            padding: 140px 2rem 80px;
+            text-align: center;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 47, 77, 0.7);
+            z-index: 0;
+        }
+
+        .hero h1,
+        .hero p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1,
+        .hero p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Section */
+        .services-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 2rem;
+        }
+
+        .section-container {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .section-container:hover::before {
+            left: 100%;
+        }
+
+        .section-container:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .section-intro {
+            margin-bottom: 4rem;
+        }
+
+        .section-intro h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .section-intro p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 1000px;
+            text-align: left;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #C49A38, #D4AF37, #C49A38);
+            background-size: 200% 100%;
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.15);
+            transform: translateY(-5px);
+            border-color: rgba(0, 102, 204, 0.3);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: #1a2f4d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin: 0;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            color: #555;
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .learn-more-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #1a2f4d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .learn-more-btn:hover {
+            background: #15283f;
+        }
+
+        /* Start Sourcing Section */
+        .start-sourcing-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 2rem;
+        }
+
+        .start-sourcing-section h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .sourcing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .sourcing-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sourcing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.15);
+            border-color: rgba(26, 47, 77, 0.3);
+        }
+
+        .sourcing-card h3 {
+            font-size: 1.4rem;
+            color: #1a2f4d;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sourcing-card h3::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .sourcing-card:hover h3::after {
+            transform: translateX(5px);
+        }
+
+        .sourcing-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .value-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .value-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-item {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1a2f4d, #2c4563);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .value-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 102, 204, 0.2);
+        }
+
+        .value-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-number {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #1a2f4d, #2c4563);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .value-item:hover .value-number {
+            transform: scale(1.1);
+        }
+
+        .value-label {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a2f4d 0%, #15283f 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: -1;
+        }
+
+        .cta-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-btn-primary {
+            background: white;
+            color: #1a2f4d;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn-primary:hover {
+            background: white;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn-secondary:hover {
+            background: white;
+            color: #1a2f4d;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 2rem 20px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bdc3c7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="picoelectronics-services.html" class="logo">
+                <img src="image/logo.png" alt="PicoElectronics Logo">
+                <span class="logo-text">PicoElectronics</span>
+            </a>
+            <div class="nav-center">
+                <div class="search-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input type="text" placeholder="Search part numbers, manufacturers...">
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="picoelectronics-services.html" class="active">Services</a></li>
+                <li><a href="picoelectronics-products.html">Products</a></li>
+                <li><a href="picoelectronics-about.html">About</a></li>
+                <li><a href="picoelectronics-contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Global IC Components Distribution Excellence</h1>
+        <p>Professional, Precise, and Efficient Supply Chain Solutions for Your Success</p>
+    </section>
+
+    <!-- Services Intro -->
+    <section class="services-section">
+        <div class="section-container">
+            <div class="section-intro">
+                <h2>What We Offer</h2>
+                <p>PicoElectronics is a trusted global IC components distributor with 25+ years of expertise. We deliver speed, precision, and reliability to help OEMs and CMs succeed in competitive markets.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="services-grid">
+            <!-- Service 1: Component Sourcing -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🔍</div>
+                    <h3>Shortage Sourcing</h3>
+                </div>
+                <p>Access 25 years of sourcing expertise trusted by the world's top OEMs and CMs. We deliver the speed, reach, and reliability needed to secure critical components and move ahead in any market.</p>
+                <ul class="service-features">
+                    <li>Real-time pricing & inventory visibility</li>
+                    <li>Authorized distributor network</li>
+                    <li>Hard-to-find & allocated components</li>
+                    <li>Quality guaranteed from verified sources</li>
+                    <li>24-hour quote turnaround</li>
+                </ul>
+                <a href="picoelectronics-contact.html" class="learn-more-btn">Request Quote →</a>
+            </div>
+
+            <!-- Service 2: Cost Optimization -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">💰</div>
+                    <h3>Cost Savings</h3>
+                </div>
+                <p>Maximize your bottom line through strategic sourcing intelligence, volume purchasing power, and market-driven pricing strategies that reduce total cost of ownership.</p>
+                <ul class="service-features">
+                    <li>Competitive market pricing analysis</li>
+                    <li>Volume discount negotiation</li>
+                    <li>Alternative component recommendations</li>
+                    <li>Total cost of ownership optimization</li>
+                    <li>Long-term price protection programs</li>
+                </ul>
+                <a href="picoelectronics-contact.html" class="learn-more-btn">Learn More →</a>
+            </div>
+
+            <!-- Service 3: Inventory Management -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">📦</div>
+                    <h3>Inventory Management</h3>
+                </div>
+                <p>Align supply with demand through coordinated inventory programs, minimizing working capital while ensuring critical parts availability when you need them.</p>
+                <ul class="service-features">
+                    <li>Just-in-time (JIT) delivery programs</li>
+                    <li>Consignment & VMI solutions</li>
+                    <li>Kitting and custom packaging</li>
+                    <li>Demand forecasting & planning</li>
+                    <li>Automated replenishment systems</li>
+                </ul>
+                <a href="picoelectronics-contact.html" class="learn-more-btn">Learn More →</a>
+            </div>
+
+            <!-- Service 4: Excess Mitigation -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">♻️</div>
+                    <h3>Excess Mitigation</h3>
+                </div>
+                <p>Turn surplus into profit. Connect your excess inventory with our network of active global buyers and maximize returns through transparent, efficient transactions.</p>
+                <ul class="service-features">
+                    <li>Fair market valuation services</li>
+                    <li>Global buyer network access</li>
+                    <li>Rapid turnaround on excess stock</li>
+                    <li>Transparent transaction process</li>
+                    <li>Inventory liquidation strategies</li>
+                </ul>
+                <a href="picoelectronics-contact.html" class="learn-more-btn">Sell Excess →</a>
+            </div>
+
+            <!-- Service 5: Product Lifecycle Management -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🔄</div>
+                    <h3>Product Lifecycle Management</h3>
+                </div>
+                <p>Safeguard against disruptions with proactive lifecycle monitoring. Manage end-of-life transitions, secure allocation parts, and maintain production continuity.</p>
+                <ul class="service-features">
+                    <li>End-of-life (EOL) early warning</li>
+                    <li>Last-time-buy (LTB) planning</li>
+                    <li>Obsolescence risk mitigation</li>
+                    <li>Alternative & drop-in replacements</li>
+                    <li>Design-in support for new programs</li>
+                </ul>
+                <a href="picoelectronics-contact.html" class="learn-more-btn">Learn More →</a>
+            </div>
+
+            <!-- Service 6: Technical Support -->
+            <div class="service-card">
+                <div class="service-header">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Technical Support</h3>
+                </div>
+                <p>Leverage our engineering expertise to make informed component decisions, resolve technical challenges, and accelerate time-to-market for your products.</p>
+                <ul class="service-features">
+                    <li>Component selection & cross-reference</li>
+                    <li>Specification & datasheet analysis</li>
+                    <li>Application engineering consultation</li>
+                    <li>Quality & reliability assessment</li>
+                    <li>BOM optimization & cost reduction</li>
+                </ul>
+                <a href="picoelectronics-contact.html" class="learn-more-btn">Get Support →</a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Start Sourcing Now Section -->
+    <section class="start-sourcing-section">
+        <div class="section-container">
+            <h2>Start Sourcing Now</h2>
+            <div class="sourcing-grid">
+            <!-- Featured Manufacturers -->
+            <a href="picoelectronics-products.html" class="sourcing-card">
+                <h3>Featured Manufacturers</h3>
+                <p>Access components from top global manufacturers including Texas Instruments, STMicroelectronics, Analog Devices, NXP, Infineon, Microchip, and more.</p>
+            </a>
+
+            <!-- Top Categories -->
+            <a href="picoelectronics-products.html" class="sourcing-card">
+                <h3>Top Categories</h3>
+                <p>Browse our most popular component categories: Microcontrollers, Power Management, Analog & Mixed Signal, Memory ICs, Interface ICs, Wireless & RF, and more.</p>
+            </a>
+
+            <!-- Request a Quote -->
+            <a href="picoelectronics-contact.html" class="sourcing-card">
+                <h3>Request a Quote</h3>
+                <p>Get a custom quote based on your part requirements—within 24 business hours.</p>
+            </a>
+
+            <!-- Upload a BOM -->
+            <a href="picoelectronics-contact.html" class="sourcing-card">
+                <h3>Upload a BOM</h3>
+                <p>Submit your BOM and we'll match it to parts in stock and provide pricing.</p>
+            </a>
+
+            <!-- Sell Excess Inventory -->
+            <a href="picoelectronics-contact.html" class="sourcing-card">
+                <h3>Sell Excess Inventory</h3>
+                <p>Turn surplus into profit—share your excess inventory to connect with active buyers.</p>
+            </a>
+
+            <!-- All Products -->
+            <a href="picoelectronics-products.html" class="sourcing-card">
+                <h3>Browse All Products</h3>
+                <p>Explore our complete catalog of electronic components and find what you need.</p>
+            </a>
+        </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>Let us help you solve your electronic component sourcing challenges</p>
+        <div class="cta-buttons">
+            <a href="picoelectronics-contact.html" class="cta-btn cta-btn-primary">Request a Quote</a>
+            <a href="picoelectronics-english-updated.html" class="cta-btn cta-btn-secondary">Browse Products</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="picoelectronics-english-updated.html">All Products</a></li>
+                    <li><a href="picoelectronics-english-updated.html">Integrated Circuits</a></li>
+                    <li><a href="picoelectronics-english-updated.html">Power Management</a></li>
+                    <li><a href="picoelectronics-english-updated.html">Microcontrollers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="picoelectronics-services.html">Component Sourcing</a></li>
+                    <li><a href="picoelectronics-services.html">Cost Optimization</a></li>
+                    <li><a href="picoelectronics-services.html">Inventory Management</a></li>
+                    <li><a href="picoelectronics-services.html">Excess Mitigation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="picoelectronics-about.html">About Us</a></li>
+                    <li><a href="picoelectronics-about.html">Quality & Certifications</a></li>
+                    <li><a href="picoelectronics-contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="picoelectronics-contact.html">Request Quote</a></li>
+                    <li><a href="picoelectronics-contact.html">Technical Support</a></li>
+                    <li><a href="#">Help Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PicoElectronics. All rights reserved. | Professional IC Components Distributor</p>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.search-box input');
+            const searchIcon = document.querySelector('.search-box svg');
+            
+            if (searchInput && searchIcon) {
+                // Handle Enter key
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        performSearch();
+                    }
+                });
+                
+                // Handle click on search icon
+                searchIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    performSearch();
+                });
+                
+                searchIcon.style.cursor = 'pointer';
+            }
+            
+            function performSearch() {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    // Redirect to products page with search parameter
+                    window.location.href = `picoelectronics-products.html?search=${encodeURIComponent(searchTerm)}`;
+                }
+            }
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Add parallax effect to hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.cta-btn, .learn-more-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.width = ripple.style.height = '100px';
+                ripple.style.left = e.clientX - this.offsetLeft - 50 + 'px';
+                ripple.style.top = e.clientY - this.offsetTop - 50 + 'px';
+                ripple.style.animation = 'ripple 0.6s ease-out';
+                ripple.style.pointerEvents = 'none';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                from {
+                    transform: scale(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
