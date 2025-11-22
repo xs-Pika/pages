@@ -572,6 +572,21 @@
             display: block;
         }
 
+        /* Error Message */
+        .error-message {
+            display: none;
+            background: #dc3545;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -596,7 +611,7 @@
     <!-- Header -->
     <header>
         <nav>
-            <a href="picoelectronics-services.html" class="logo">
+            <a href="index.html" class="logo">
                 <img src="image/logo.png" alt="PicoElectronics Logo">
                 <span class="logo-text">PicoElectronics</span>
             </a>
@@ -627,28 +642,10 @@
     <section class="contact-methods">
         <div class="methods-grid">
             <div class="method-card">
-                <div class="method-icon">📞</div>
-                <h3>Call Us</h3>
-                <p>Speak with our sales team now</p>
-                <a href="tel:+16175024100">+1 617 502 4100</a>
-            </div>
-            <div class="method-card">
                 <div class="method-icon">✉️</div>
                 <h3>Email Us</h3>
                 <p>Send inquiries anytime, anywhere</p>
-                <a href="mailto:sales@picoelectronics.com">sales@picoelectronics.com</a>
-            </div>
-            <div class="method-card">
-                <div class="method-icon">💬</div>
-                <h3>Live Chat</h3>
-                <p>Real-time support available</p>
-                <a href="#">Start Chat →</a>
-            </div>
-            <div class="method-card">
-                <div class="method-icon">📋</div>
-                <h3>Request Quote</h3>
-                <p>Custom pricing within 24 hours</p>
-                <a href="#contact-form">Submit Request →</a>
+                <a href="mailto:diane@picoelectronics.ltd">diane@picoelectronics.ltd</a>
             </div>
         </div>
     </section>
@@ -658,7 +655,7 @@
         <div class="form-container">
             <div class="form-info">
                 <h2>General Inquiry</h2>
-                <p>Complete this form to contact PicoElectronics, your trusted global IC components distributor, about our products and services. For immediate assistance, call us at +1 617 502 4100.</p>
+                <p>Complete this form to contact PicoElectronics, your trusted global IC components distributor, about our products and services. For immediate assistance, email us at diane@picoelectronics.ltd.</p>
                 <ul class="info-list">
                     <li>24-hour quote turnaround guaranteed</li>
                     <li>Expert technical & application support</li>
@@ -668,51 +665,84 @@
                 </ul>
             </div>
 
-            <form class="contact-form" onsubmit="submitContactForm(event)">
+            <form class="contact-form" id="contactForm">
                 <div class="success-message" id="successMessage">
-                    Thank you! Your message has been received. We'll get back to you within 24 hours.
+                    Thank you! Your message has been sent successfully to diane@picoelectronics.ltd. We'll get back to you within 24 hours.
+                </div>
+                
+                <div class="error-message" id="errorMessage">
+                    Sorry, there was an error. Please send your inquiry directly to: <a href="mailto:diane@picoelectronics.ltd" style="color: white; text-decoration: underline;">diane@picoelectronics.ltd</a>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label>First Name <span class="required">*</span></label>
-                        <input type="text" required placeholder="John">
+                        <input type="text" name="firstName" required placeholder="John">
                     </div>
                     <div class="form-group">
                         <label>Last Name <span class="required">*</span></label>
-                        <input type="text" required placeholder="Smith">
+                        <input type="text" name="lastName" required placeholder="Smith">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Email Address <span class="required">*</span></label>
-                    <input type="email" required placeholder="john.smith@company.com">
+                    <input type="email" name="email" required placeholder="john.smith@company.com">
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" placeholder="+1 (555) 123-4567">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" name="phone" required placeholder="+1 (555) 123-4567">
                     </div>
                     <div class="form-group">
-                        <label>Company</label>
-                        <input type="text" placeholder="Company Name">
+                        <label>Company <span class="required">*</span></label>
+                        <input type="text" name="company" required placeholder="Company Name">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Geographic Region <span class="required">*</span></label>
-                        <select required>
-                            <option value="">Select Region</option>
-                            <option value="americas">Americas</option>
-                            <option value="emea">EMEA (Europe, Middle East, Africa)</option>
-                            <option value="apac">APAC (Asia Pacific)</option>
+                        <label>Country <span class="required">*</span></label>
+                        <select name="country" required>
+                            <option value="">Select Country</option>
+                            <option value="united-states">United States</option>
+                            <option value="canada">Canada</option>
+                            <option value="mexico">Mexico</option>
+                            <option value="united-kingdom">United Kingdom</option>
+                            <option value="germany">Germany</option>
+                            <option value="france">France</option>
+                            <option value="italy">Italy</option>
+                            <option value="spain">Spain</option>
+                            <option value="netherlands">Netherlands</option>
+                            <option value="belgium">Belgium</option>
+                            <option value="switzerland">Switzerland</option>
+                            <option value="austria">Austria</option>
+                            <option value="poland">Poland</option>
+                            <option value="czech-republic">Czech Republic</option>
+                            <option value="china">China</option>
+                            <option value="japan">Japan</option>
+                            <option value="south-korea">South Korea</option>
+                            <option value="taiwan">Taiwan</option>
+                            <option value="singapore">Singapore</option>
+                            <option value="hong-kong">Hong Kong</option>
+                            <option value="india">India</option>
+                            <option value="malaysia">Malaysia</option>
+                            <option value="thailand">Thailand</option>
+                            <option value="vietnam">Vietnam</option>
+                            <option value="australia">Australia</option>
+                            <option value="new-zealand">New Zealand</option>
+                            <option value="brazil">Brazil</option>
+                            <option value="argentina">Argentina</option>
+                            <option value="israel">Israel</option>
+                            <option value="uae">United Arab Emirates</option>
+                            <option value="south-africa">South Africa</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Topic of Interest <span class="required">*</span></label>
-                        <select required>
+                        <select name="topic" required>
                             <option value="">Select Topic</option>
                             <option value="quote">Request a Quote</option>
                             <option value="product">Product Inquiry</option>
@@ -725,7 +755,7 @@
 
                 <div class="form-group">
                     <label>Message <span class="required">*</span></label>
-                    <textarea required placeholder="Please provide details about your inquiry, including part numbers if applicable..."></textarea>
+                    <textarea name="message" required placeholder="Please provide details about your inquiry, including part numbers if applicable..."></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">Submit Inquiry</button>
@@ -737,124 +767,11 @@
         </div>
     </section>
 
-    <!-- Locations Section -->
-    <section class="locations-section">
-        <div class="locations-container">
-            <h2>Our Global Offices</h2>
-            <p class="locations-intro">We maintain offices worldwide to serve you better with local expertise and global resources</p>
-            
-            <div class="locations-grid">
-                <!-- Americas HQ -->
-                <div class="location-card">
-                    <span class="location-region">AMERICAS</span>
-                    <h3>Portsmouth, NH</h3>
-                    <div class="location-details">
-                        <p>1 Harbour Place, Suite 240</p>
-                        <p>Portsmouth, NH 03801</p>
-                        <p>United States</p>
-                        <p>📞 +1 617 502 4100</p>
-                    </div>
-                    <div class="location-type">Global Headquarters</div>
-                </div>
-
-                <!-- Americas - Boston -->
-                <div class="location-card">
-                    <span class="location-region">AMERICAS</span>
-                    <h3>Boston, MA</h3>
-                    <div class="location-details">
-                        <p>100 High Street</p>
-                        <p>Boston, MA 02110</p>
-                        <p>United States</p>
-                        <p>📞 +1 617 555 0100</p>
-                    </div>
-                    <div class="location-type">Sales & Service Hub</div>
-                </div>
-
-                <!-- Americas - Silicon Valley -->
-                <div class="location-card">
-                    <span class="location-region">AMERICAS</span>
-                    <h3>Santa Clara, CA</h3>
-                    <div class="location-details">
-                        <p>2901 Tasman Drive, Suite 205</p>
-                        <p>Santa Clara, CA 95054</p>
-                        <p>United States</p>
-                        <p>📞 +1 408 555 0200</p>
-                    </div>
-                    <div class="location-type">West Coast Operations</div>
-                </div>
-
-                <!-- EMEA HQ -->
-                <div class="location-card">
-                    <span class="location-region">EMEA</span>
-                    <h3>Amsterdam</h3>
-                    <div class="location-details">
-                        <p>Thomas R. Malthusstraat 1</p>
-                        <p>1066 JR Amsterdam</p>
-                        <p>Netherlands</p>
-                        <p>📞 +31 20 555 0100</p>
-                    </div>
-                    <div class="location-type">EMEA Headquarters</div>
-                </div>
-
-                <!-- EMEA - UK -->
-                <div class="location-card">
-                    <span class="location-region">EMEA</span>
-                    <h3>London</h3>
-                    <div class="location-details">
-                        <p>25 Canada Square</p>
-                        <p>London E14 5LQ</p>
-                        <p>United Kingdom</p>
-                        <p>📞 +44 20 7555 0100</p>
-                    </div>
-                    <div class="location-type">UK Operations</div>
-                </div>
-
-                <!-- APAC HQ -->
-                <div class="location-card">
-                    <span class="location-region">APAC</span>
-                    <h3>Singapore</h3>
-                    <div class="location-details">
-                        <p>11 N Buona Vista Dr, #09-08</p>
-                        <p>Tower 2 The Metropolis</p>
-                        <p>Singapore 138589</p>
-                        <p>📞 +65 6555 0100</p>
-                    </div>
-                    <div class="location-type">APAC Headquarters</div>
-                </div>
-
-                <!-- APAC - Hong Kong -->
-                <div class="location-card">
-                    <span class="location-region">APAC</span>
-                    <h3>Hong Kong</h3>
-                    <div class="location-details">
-                        <p>18 Harbour Road, Room 3205</p>
-                        <p>Wanchai, Hong Kong</p>
-                        <p>📞 +852 2555 0100</p>
-                    </div>
-                    <div class="location-type">Distribution Center</div>
-                </div>
-
-                <!-- APAC - Shenzhen -->
-                <div class="location-card">
-                    <span class="location-region">APAC</span>
-                    <h3>Shenzhen</h3>
-                    <div class="location-details">
-                        <p>Shenzhen Software Park</p>
-                        <p>Nanshan District</p>
-                        <p>Shenzhen, China</p>
-                        <p>📞 +86 755 8888 0100</p>
-                    </div>
-                    <div class="location-type">Sourcing Center</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Quick Links -->
     <section class="quick-links">
         <h2>Quick Access</h2>
         <div class="links-grid">
-            <a href="picoelectronics-english-updated.html" class="link-card">
+            <a href="picoelectronics-products.html" class="link-card">
                 <div class="link-icon">🔍</div>
                 <h3>Search Products</h3>
                 <p>Browse our 100,000+ part numbers</p>
@@ -881,12 +798,12 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Products</h4>
+                <h3>Products</h3>
                 <ul>
-                    <li><a href="picoelectronics-english-updated.html">All Products</a></li>
-                    <li><a href="picoelectronics-english-updated.html">Integrated Circuits</a></li>
-                    <li><a href="picoelectronics-english-updated.html">Power Management</a></li>
-                    <li><a href="picoelectronics-english-updated.html">Microcontrollers</a></li>
+                    <li><a href="picoelectronics-products.html">All Products</a></li>
+                    <li><a href="picoelectronics-products.html">Integrated Circuits</a></li>
+                    <li><a href="picoelectronics-products.html">Power Management</a></li>
+                    <li><a href="picoelectronics-products.html">Microcontrollers</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -954,28 +871,82 @@
             }
         });
         
-        function submitContactForm(event) {
+        // Handle form submission with FormSubmit API
+        const form = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        form.addEventListener('submit', async function(event) {
             event.preventDefault();
             
-            // Show success message
-            const successMessage = document.getElementById('successMessage');
-            successMessage.classList.add('show');
+            // Hide previous messages
+            successMessage.classList.remove('show');
+            errorMessage.classList.remove('show');
             
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Get form data
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
             
-            // Reset form after 1 second
-            setTimeout(() => {
-                event.target.reset();
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                // Prepare email data
+                const emailData = {
+                    access_key: 'f8d3c8e0-9b7d-4a2e-8c6f-1a2b3c4d5e6f', // Public demo key - replace with yours
+                    subject: 'New Contact Form Submission from PicoElectronics',
+                    from_name: 'PicoElectronics Contact Form',
+                    to_email: 'diane@picoelectronics.ltd',
+                    firstName: formData.get('firstName'),
+                    lastName: formData.get('lastName'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    company: formData.get('company'),
+                    country: form.querySelector('select[name="country"]').options[form.querySelector('select[name="country"]').selectedIndex].text,
+                    topic: form.querySelector('select[name="topic"]').options[form.querySelector('select[name="topic"]').selectedIndex].text,
+                    message: formData.get('message')
+                };
                 
-                // Hide success message after 5 seconds
+                // Send via FormSubmit
+                const response = await fetch('https://formsubmit.co/ajax/diane@picoelectronics.ltd', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(emailData)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok && result.success !== false) {
+                    // Success
+                    successMessage.classList.add('show');
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    form.reset();
+                    
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000);
+                } else {
+                    throw new Error('Submission failed');
+                }
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                errorMessage.classList.add('show');
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
                 setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-            }, 1000);
-            
-            return false;
-        }
+                    errorMessage.classList.remove('show');
+                }, 7000);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
     </script>
 </body>
 </html>
